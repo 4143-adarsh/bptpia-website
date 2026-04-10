@@ -21,7 +21,8 @@ import {
   Rocket,
   GraduationCap,
   MapPin,
-  FileText
+  FileText,
+  Quote
 } from "lucide-react"
 import { motion, useScroll, useTransform, useInView, useSpring, Variants } from "framer-motion"
 
@@ -147,31 +148,45 @@ export default function AboutBPTPIAExpanded() {
 
       {/* ========================================== */}
       {/* SECTION 1: HERO & INTRO */}
-      {/* Reduced padding top and bottom */}
       {/* ========================================== */}
-      <section ref={heroRef} className="w-full pt-32 pb-6 px-4 relative z-10 bg-white">
+      <section ref={heroRef} className="w-full pt-[140px] md:pt-[160px] pb-6 px-4 relative z-10 bg-white">
         <motion.div className="container-custom" initial="hidden" animate={isHeroInView ? "visible" : "hidden"} variants={containerVariants}>
-          <motion.div className="flex flex-col items-center mb-6" variants={itemVariants}>
-            <motion.span className="text-brandOrange font-bold mb-2 flex items-center gap-2 tracking-widest text-sm md:text-base uppercase">
+          <motion.div className="flex flex-col items-center mb-8" variants={itemVariants}>
+            {/* Synced: Blue Subheading Element */}
+            <motion.span className="text-brandGreen font-bold mb-2 flex items-center gap-2 tracking-widest text-sm md:text-base uppercase">
               <Zap className="w-4 h-4" /> DISCOVER BPTPIA
             </motion.span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-textmain mb-4 text-center leading-tight">
+            
+            {/* Synced: Red Heading from global CSS */}
+            <h1 className="heading-xl">
               The Strategic Pillar
             </h1>
-            <motion.div className="w-24 h-1.5 bg-brandOrange rounded-full" initial={{ width: 0 }} animate={{ width: 96 }} transition={{ duration: 1, delay: 0.5 }} />
+            
+            <motion.div className="w-24 h-1.5 bg-brandOrange rounded-full mb-6" initial={{ width: 0 }} animate={{ width: 96 }} transition={{ duration: 1, delay: 0.5 }} />
           </motion.div>
 
-          <motion.p className="text-muted mb-4 text-center max-w-4xl mx-auto text-base md:text-lg leading-relaxed" variants={itemVariants}>
-            We act as the definitive bridge between aspiring students and the burgeoning landscape of technical excellence in Bihar. By unifying the state's private technical colleges, we ensure that the quality of education remains universally high, accessible, and transparent.
-          </motion.p>
+          {/* FIX: Premium Attractive Card for the Paragraph instead of plain text */}
+          <motion.div 
+            variants={itemVariants} 
+            className="max-w-4xl mx-auto bg-slate-50/80 backdrop-blur-md border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[2rem] p-6 md:p-10 relative overflow-hidden"
+          >
+            {/* Decorative Blue Left Border Line */}
+            <div className="absolute top-0 left-0 w-2 h-full bg-brandGreen"></div>
+            {/* Decorative Background Quote Icon */}
+            <Quote className="absolute top-4 left-6 w-12 h-12 text-brandGreen/10 -z-0 rotate-180 pointer-events-none" />
+            
+            {/* Synced: Blue text-muted styling */}
+            <p className="text-muted relative z-10 m-0">
+              We act as the definitive bridge between aspiring students and the burgeoning landscape of technical excellence in Bihar. By unifying the state's private technical colleges, we ensure that the quality of education remains universally high, accessible, and transparent.
+            </p>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* ========================================== */}
       {/* SECTION 2: VISION & MISSION */}
-      {/* Reduced padding top and bottom */}
       {/* ========================================== */}
-      <section ref={visionRef} className="w-full pt-4 pb-12 px-4 relative z-10 bg-white">
+      <section ref={visionRef} className="w-full pt-10 pb-12 px-4 relative z-10 bg-white">
         <motion.div className="container-custom" initial="hidden" animate={isVisionInView ? "visible" : "hidden"} variants={containerVariants}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Vision Card */}
@@ -203,14 +218,14 @@ export default function AboutBPTPIAExpanded() {
 
       {/* ========================================== */}
       {/* SECTION 3: THE PILLARS (SERVICES GRID) */}
-      {/* Reduced vertical padding (py-12 md:py-16) */}
       {/* ========================================== */}
       <section ref={servicesRef} className="w-full py-12 md:py-16 px-4 relative z-10 bg-slate-50/30">
         <motion.div className="container-custom" initial="hidden" animate={isServicesInView ? "visible" : "hidden"} variants={containerVariants}>
           
-          <motion.div className="text-center mb-10" variants={itemVariants}>
-            <h2 className="text-2xl md:text-3xl font-black text-textmain mb-2">Core Competencies</h2>
-            <p className="text-sm md:text-base text-muted max-w-2xl mx-auto">How BPTPIA elevates the standard of technical education.</p>
+          <motion.div className="text-center mb-12" variants={itemVariants}>
+            {/* Synced: Red Heading & Blue Subheading */}
+            <h2 className="heading-xl">Core Competencies</h2>
+            <p className="text-muted">How BPTPIA elevates the standard of technical education.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative items-center">
@@ -249,26 +264,24 @@ export default function AboutBPTPIAExpanded() {
 
       {/* ========================================== */}
       {/* SECTION 4: THE JOURNEY (NEW HORIZONTAL GRID) */}
-      {/* Reduced padding */}
       {/* ========================================== */}
       <section ref={journeyRef} className="w-full py-12 md:py-16 px-4 bg-gradient-to-b from-slate-50 to-white text-textmain relative z-10 overflow-hidden">
-        {/* Soft elegant background accents */}
         <div className="absolute top-0 left-0 w-full h-full opacity-40 pointer-events-none overflow-hidden">
            <div className="absolute -top-24 -left-24 w-96 h-96 bg-brandOrange/5 rounded-full blur-3xl" />
            <div className="absolute top-1/2 right-0 w-80 h-80 bg-brandGreen/5 rounded-full blur-3xl translate-x-1/2" />
         </div>
 
         <motion.div className="container-custom relative z-10" initial="hidden" animate={isJourneyInView ? "visible" : "hidden"} variants={containerVariants}>
-          <motion.div className="text-center mb-10" variants={itemVariants}>
-            <span className="text-brandOrange font-bold tracking-widest uppercase text-xs mb-2 block">Simplified Process</span>
-            <h2 className="text-2xl md:text-3xl font-black mb-3 text-textmain">Admission Journey</h2>
-            <div className="w-16 h-1.5 bg-gradient-to-r from-brandOrange to-brandGreen mx-auto rounded-full" />
+          <motion.div className="text-center mb-12" variants={itemVariants}>
+            <span className="text-brandGreen font-bold tracking-widest uppercase text-xs mb-2 block">Simplified Process</span>
+            
+            {/* Synced: Red Heading */}
+            <h2 className="heading-xl">Admission Journey</h2>
+            
+            <div className="w-16 h-1.5 bg-gradient-to-r from-brandOrange to-brandGreen mx-auto rounded-full mt-4" />
           </motion.div>
 
-          {/* New Horizontal Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 relative">
-            
-            {/* Connecting horizontal line for Desktop */}
             <div className="hidden lg:block absolute top-14 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-brandOrange/20 via-brandGreen/30 to-brandOrange/20 z-0" />
 
             {journeySteps.map((step, index) => (
@@ -277,17 +290,14 @@ export default function AboutBPTPIAExpanded() {
                 variants={itemVariants} 
                 className="relative z-10 group"
               >
-                <div className="bg-white h-full p-6 rounded-2xl border border-slate-100 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_40px_-15px_rgba(255,107,0,0.15)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
+                <div className="bg-white h-full p-6 rounded-2xl border border-slate-100 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)] hover:shadow-brandOrange/20 hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col">
                   
-                  {/* Subtle top border gradient reveal on hover */}
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-brandOrange to-brandGreen opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   
-                  {/* Big faint number watermark */}
                   <div className="absolute -top-4 -right-2 text-[100px] font-black text-slate-50 leading-none group-hover:text-brandOrange/5 group-hover:scale-110 transition-all duration-500 pointer-events-none select-none">
                     {index + 1}
                   </div>
 
-                  {/* Refined Icon container */}
                   <div className="w-12 h-12 bg-white shadow-sm border border-slate-100 text-brandOrange rounded-xl flex items-center justify-center shrink-0 mb-4 group-hover:bg-brandOrange/10 group-hover:text-brandOrange transition-colors duration-300 relative z-10">
                     {step.icon}
                   </div>
@@ -303,7 +313,6 @@ export default function AboutBPTPIAExpanded() {
 
       {/* ========================================== */}
       {/* SECTION 5: STATS & AFFILIATIONS */}
-      {/* Reduced padding, tighter margins */}
       {/* ========================================== */}
       <section ref={statsRef} className="w-full py-12 md:py-16 px-4 relative z-10 bg-white">
         <motion.div className="container-custom" initial="hidden" animate={isStatsInView ? "visible" : "hidden"} variants={containerVariants}>
@@ -315,42 +324,44 @@ export default function AboutBPTPIAExpanded() {
             ))}
           </div>
 
-          {/* Affiliations */}
-          <motion.div variants={itemVariants} className="text-center mb-8">
-             <h2 className="text-xl md:text-2xl font-black text-textmain mb-2">Recognized & Approved By</h2>
-             <p className="text-xs md:text-sm text-muted">Our member institutions operate under the strict guidelines of national and state bodies.</p>
+          <motion.div variants={itemVariants} className="text-center mb-10">
+             {/* Synced: Red Heading & Blue Subheading */}
+             <h2 className="heading-xl">Recognized & Approved By</h2>
+             <p className="text-muted">Our member institutions operate under the strict guidelines of national and state bodies.</p>
           </motion.div>
           
           <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 md:gap-6 items-center opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-             <div className="flex items-center gap-2 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg font-bold text-sm md:text-base"><Award className="w-4 h-4 text-brandOrange"/> AICTE</div>
              <div className="flex items-center gap-2 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg font-bold text-sm md:text-base"><Landmark className="w-4 h-4 text-brandGreen"/> DST, Govt of Bihar</div>
              <div className="flex items-center gap-2 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg font-bold text-sm md:text-base"><GraduationCap className="w-4 h-4 text-brandOrange"/> Aryabhatta Univ.</div>
              <div className="flex items-center gap-2 bg-slate-50 border border-slate-100 px-4 py-2.5 rounded-lg font-bold text-sm md:text-base"><MapPin className="w-4 h-4 text-brandGreen"/> SBTE Bihar</div>
           </motion.div>
 
           {/* ========================================== */}
-          {/* SECTION 6: CTA (LAMP BLUE) */}
-          {/* Reduced margin top */}
+          {/* SECTION 6: CTA (LAMP BLUE - Original User Request) */}
           {/* ========================================== */}
           <motion.div
-            className="mt-16 bg-gradient-to-br from-blue-700 to-cyan-500 text-white p-6 md:p-10 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl relative overflow-hidden"
+            className="mt-16 bg-gradient-to-r from-[#0062ff] to-[#00b4d8] text-white p-6 md:p-10 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-[0_20px_50px_-12px_rgba(0,98,255,0.4)] relative overflow-hidden"
             variants={itemVariants}
           >
-            <div className="absolute top-0 right-0 opacity-10 pointer-events-none">
-              <Rocket className="w-56 h-56 transform translate-x-1/4 -translate-y-1/4 rotate-12" />
+            <div className="absolute top-0 right-0 h-full w-1/3 opacity-10 pointer-events-none flex items-center justify-end transform translate-x-12">
+               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-[150%] text-white fill-current">
+                 <path d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.1,-46.3C90.4,-33.5,96,-18,94.9,-3.1C93.8,11.8,86.1,26.1,76.5,38.5C66.9,50.9,55.4,61.4,42.1,69.5C28.8,77.6,14.4,83.3,-0.1,83.5C-14.6,83.7,-29.2,78.4,-41.8,70C-54.4,61.6,-65,50.1,-73.4,37C-81.8,23.9,-88,9.2,-87.5,-5.2C-87,-19.6,-79.8,-33.7,-70.5,-45.5C-61.2,-57.3,-49.8,-66.8,-37,-73.4C-24.2,-80,-12.1,-83.7,1.2,-85.7C14.5,-87.7,29,-88,44.7,-76.4Z" transform="translate(100 100)" />
+               </svg>
             </div>
             
             <div className="flex-1 relative z-10 text-center md:text-left">
-              <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-[10px] font-semibold tracking-wider mb-2 border border-white/30 backdrop-blur-md">
+              <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-[10px] font-semibold tracking-wider mb-3 border border-white/30 backdrop-blur-md">
                 ADMISSIONS OPEN
               </span>
-              <h3 className="text-2xl md:text-3xl font-black mb-2 leading-tight">Ready to engineer your future?</h3>
+              {/* Keeping this text explicitly white for visibility on blue gradient */}
+              <h3 className="text-2xl md:text-3xl font-black mb-2 leading-tight text-white">Ready to engineer your future?</h3>
               <p className="text-white/90 text-sm md:text-base max-w-2xl">Join the unified platform of premier technical institutions in Bihar. Register for the upcoming CET today.</p>
             </div>
             
             <div className="relative z-10 shrink-0">
-              <button className="bg-brandOrange hover:bg-orange-600 text-white px-5 py-3 rounded-xl font-bold text-sm flex items-center gap-2 transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(255,107,0,0.4)]">
-                Apply for CET <ArrowRight className="w-4 h-4" />
+              {/* Synced directly with Global CSS `.btn-primary` but applying Red BG explicitly for this CTA per user's screenshot request earlier */}
+              <button className="bg-[#d9192b] hover:bg-red-700 text-white px-8 py-3.5 rounded-xl font-bold text-sm md:text-base transition-all duration-300 shadow-xl flex items-center gap-2 group">
+                Apply for CET <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </motion.div>

@@ -5,14 +5,10 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-brandOrange: #C8102E;
-  /* University Red/Orange */
-  --color-brandGreen: #00843D;
-  /* Academic Green */
-  --color-textmain: #050505;
-  /* Deep Black */
-
-  --font-sans: 'Inter', system-ui, sans-serif;
+  /* COLORS UPDATED AS PER LOGO THEME */
+  --color-brandOrange: #cc0000; /* Ab ye Red hai (Heading & Hover ke liye) */
+  --color-brandGreen: #004d80;  /* Ab ye Blue hai (Subheading ke liye) */
+  --color-textmain: #050505;    /* Deep Black (Para, Span aur Button bg ke liye) */
 
   /* Shadcn defaults just in case */
   --color-background: white;
@@ -70,17 +66,17 @@ body {
   @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full;
 }
 
-/* --- 📏 Headings (Orange) with Improved Clamp --- */
+/* --- 📏 Headings (RED) with Improved Clamp --- */
 .heading-xl {
-  @apply text-brandOrange font-bold tracking-tight uppercase text-center;
+  @apply text-brandOrange font-bold tracking-tight uppercase text-center; /* text-brandOrange ab Red (#cc0000) hai */
   font-size: clamp(1.8rem, 6vw, 2rem);
   line-height: 1.1;
   margin-bottom: 1rem;
 }
 
-/* --- Subtitle/Paragraph (Green) --- */
+/* --- Subtitle/Paragraph (BLUE) --- */
 .text-muted {
-  @apply text-brandGreen font-medium text-center mx-auto max-w-2xl;
+  @apply text-brandGreen font-medium text-center mx-auto max-w-2xl; /* text-brandGreen ab Blue (#004d80) hai */
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   line-height: 1.5;
 }
@@ -89,7 +85,7 @@ body {
    🎯 BUTTON FIXES (Grid-Safe & Overflow Free) 
 ========================================= */
 
-/* 1. Primary Button (Desktop Base) */
+/* 1. Primary Button (Desktop Base - BLACK bg, WHITE text) */
 .btn-primary {
   @apply bg-textmain text-white px-8 py-3 rounded-full font-bold transition duration-300 hover:bg-brandOrange hover:scale-105 flex items-center justify-center flex-row gap-2;
   line-height: 1.2;
@@ -98,7 +94,7 @@ body {
   /* Desktop font size */
 }
 
-/* 2. Inverse Button (Desktop Base) */
+/* 2. Inverse Button (Desktop Base - WHITE bg, BLACK text) */
 .btn-inverse {
   @apply bg-white text-textmain px-8 py-3 rounded-full font-bold transition duration-300 hover:bg-brandOrange hover:text-white hover:scale-105 flex items-center justify-center flex-row gap-2;
   line-height: 1.2;
